@@ -11,6 +11,9 @@ public class ClassParser {
     }
 
     public int parse() throws NumberFormatException {
+        if (string.equals(null) || string.equals("")) {
+            throw new NumberFormatException(string + " = null or \"\"!");
+        }
         int i = 0;
         for (int j = 0; j < string.length(); j++) {
             if (string.charAt(j) < 48 || string.charAt(j) > 58) {
