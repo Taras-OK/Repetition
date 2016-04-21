@@ -12,13 +12,13 @@ public class ClassParser {
 
     public int parse() throws NumberFormatException {
         int i = 0;
-        char[] ch = new char[string.length() - 1];
-        for (int j = 0; j < string.length()-1; j++) {
+        for (int j = 0; j < string.length(); j++) {
             if (string.charAt(j) < 48 || string.charAt(j) > 58) {
                 throw  new NumberFormatException(string);
             }
-            ch[j] = string.charAt(j);
+            i += (string.charAt(j)-48);
+            i *= 10;
         }
-        return i =(int) Character.codePointBefore(ch,1);
+        return i/10;
     }
 }

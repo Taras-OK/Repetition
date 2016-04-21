@@ -5,7 +5,7 @@ package com.company.prog.m2.parse;
  */
 public class Main {
     public static void main(String[] args) {
-        String r = "12349";
+        String r = "0120349";
         int i = Integer.parseInt(r);
         char ch1 = r.charAt(0);
         char ch2 = r.charAt(r.length()-1);
