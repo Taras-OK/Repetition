@@ -32,6 +32,6 @@ public class Main {
             }
         }
         sl.add(new Student("Seva", "Evgienko", "1.1.1986"));
-        System.out.println("You exit");
+        System.out.println("You are came out");
     }
 }
