@@ -1,7 +1,5 @@
 package com.company.prog.m1;
 
-import java.util.Arrays;
-
 /**
  * Created by Palamarjuk on 05.04.2016.
  */
@@ -18,11 +16,13 @@ public class OTest {
             default:
                 c = 11;
         }
-        if ((c + d == e) || (e + c == d) || ((e = 1) > 0))
+        if ((c + d == e) || (e + c == d) || ((e = 1) > 0)) {
             System.out.println("yo!");
-        else
+        } else {
             System.out.println("no!");
+        }
     }
+}
 
     /*public static void main(String[] args) {
         double d = 0.5;
@@ -279,4 +279,4 @@ public static void main(String[] args) {
         doJob();
     }*/
 
-}
+

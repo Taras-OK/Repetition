@@ -26,12 +26,16 @@ public class Main {
                     } catch (DataFormatException e) {
                         System.out.println("Try again...");
                     }
-                } else sl.add(new Student(ar[0], ar[1], ar[2]));
+                } else try {
+                    sl.add(new Student(ar[0], ar[1], ar[2]));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    System.out.println("Try again...");
+                }
             } else if (in.equalsIgnoreCase("e")) {
                 break;
             }
         }
-        sl.add(new Student("Seva", "Evgienko", "1.1.1986"));
         System.out.println("You are came out");
     }
 }

@@ -43,7 +43,9 @@ public class Task15M1 {
                         count++;
                         if (user == 1) {
                             ent = "X";
-                        } else ent = "O";
+                        } else {
+                            ent = "O";
+                        }
                         a[j][k] = ent;
                         System.out.println(Arrays.toString(a[0]));
                         System.out.println(Arrays.toString(a[1]));

@@ -8,7 +8,7 @@ public class StudentList {
     private int p = 0;
     private int len = list.length;
 
-    public void add(Student s) {
+    public void add(Student s) throws Exception {
         if (p == list.length - 1) {
             Student[] list1 = new Student[list.length * 2];
             for (int i = 0; i < list.length; i++) {
@@ -17,7 +17,13 @@ public class StudentList {
             list = list1;
             len = list.length;
         }
-        list[p++] = s;
+        if ((s.getName().equals("") || s.getName().equals(null) || s.getName().length() < 3)) {
+            throw new NullPointerException("Empty name!");
+        } else if ((s.getSurname().equals("") || s.getSurname().equals(null)) || s.getSurname().length() < 3) {
+            throw new NullPointerException("Empty surname!");
+        } else {
+            list[p++] = s;
+        }
     }
 
     public int getLenght() {
