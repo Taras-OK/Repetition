@@ -1,14 +1,17 @@
 package com.company.prog.m2.studentWihtExcep;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class StudentList {
     private Student[] list = new Student[1];
     private int p = 0;
     private int len = list.length;
+    private Date birth;
+    public static SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 
-    public void add(Student s) throws Exception {
+    public void add(Student s) {
         if (p == list.length - 1) {
             Student[] list1 = new Student[list.length * 2];
             for (int i = 0; i < list.length; i++) {
@@ -17,13 +20,23 @@ public class StudentList {
             list = list1;
             len = list.length;
         }
-        if ((s.getName().equals("") || s.getName().equals(null) || s.getName().length() < 3)) {
-            throw new NullPointerException("Empty name!");
-        } else if ((s.getSurname().equals("") || s.getSurname().equals(null)) || s.getSurname().length() < 3) {
-            throw new NullPointerException("Empty surname!");
-        } else {
-            list[p++] = s;
+        try {
+            NameException.correctName(s.getName(), "name");
+        } catch (NameException e) {
+            System.out.println(e.toString());
         }
+        try {
+            NameException.correctSurname(s.getSurname(), "surname");
+        } catch (NameException e) {
+            System.out.println(e.toString());
+        }
+        /*try {
+            birth = sdf.parse(s.getBirth());
+        } catch (ParseException e) {
+            System.out.println("Wrong date!");
+        }*/
+        list[p++] = s;
+
     }
 
     public int getLenght() {

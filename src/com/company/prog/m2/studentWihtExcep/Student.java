@@ -12,13 +12,13 @@ public class Student {
 	private Date birth;
 
 	public Student(String name, String surname, String birth) {
-		this.name = name;
-		this.surname = surname;
 		try {
 			this.birth = sdf.parse(birth);
 		} catch (ParseException e) {
 			System.out.println("Wrong date!");
 		}
+		this.name = name;
+		this.surname = surname;
 	}
 
 	public String getName() {

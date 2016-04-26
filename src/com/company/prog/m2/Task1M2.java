@@ -1,13 +1,21 @@
 package com.company.prog.m2;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Palamarjuk on 01.04.2016.
  */
 public class Task1M2 {
     public static void main(String[] args) {
-        String str = "param1=value1&param2=value2&param3=value39";
-        int i = str.indexOf('9');
-        System.out.println(i);
-        System.out.println(str.length());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        Date dt = new Date();
+        try {
+           dt = sdf.parse("1");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(dt);
     }
 }
