@@ -30,11 +30,11 @@ public class StudentList {
         } catch (NameException e) {
             System.out.println(e.toString());
         }
-        /*try {
+        try {
             birth = sdf.parse(s.getBirth());
         } catch (ParseException e) {
             System.out.println("Wrong date!");
-        }*/
+        }
         list[p++] = s;
 
     }
