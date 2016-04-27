@@ -7,16 +7,18 @@ import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 
 public class Monitor {
-    String file;
+    String[] fileList;
     IFileEvent event;
 
-    public Monitor(String file, IFileEvent event) {
-        this.file = file;
+    public Monitor(String[] fileLis, IFileEvent event) {
+        this.fileList = fileLis;
         this.event = event;
     }
 
     public void start() throws IOException {
-        while (true) {
+        int count = 0;
+        while (count <= fileList.length) {
+            String file = fileList[count];
             File f = new File(file);
 
             if (f.exists() && f.isFile()) {
@@ -25,9 +27,9 @@ public class Monitor {
                     Path path = f.toPath();
                     BasicFileAttributes attr = Files.readAttributes(path, BasicFileAttributes.class);
                     event.createdDate(attr.creationTime());
-
+                    count++;
                 }
-                break;
+                if (count == fileList.length) break;
             }
 
             try {
