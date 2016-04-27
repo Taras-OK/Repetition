@@ -1,6 +1,10 @@
 package com.company.prog.m2.monitorDate;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.attribute.BasicFileAttributes;
 
 public class Monitor {
     String file;
@@ -11,14 +15,16 @@ public class Monitor {
         this.event = event;
     }
 
-    public void start() {
+    public void start() throws IOException {
         while (true) {
             File f = new File(file);
 
             if (f.exists() && f.isFile()) {
                 if (event != null) {
                     event.onFileAdded(file);
-                    event.createdDate(f.lastModified());
+                    Path path = f.toPath();
+                    BasicFileAttributes attr = Files.readAttributes(path, BasicFileAttributes.class);
+                    event.createdDate(attr.creationTime());
 
                 }
                 break;
