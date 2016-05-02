@@ -56,7 +56,7 @@ public class Main {
                 }
             }
             if (count == 0) {
-                System.out.println("New file: " + files[i].toString() + files[i].getTotalSpace());
+                System.out.println("New file: " + files[i].toString());
                 list.add(files[i].toString());
                 count = 0;
             }
