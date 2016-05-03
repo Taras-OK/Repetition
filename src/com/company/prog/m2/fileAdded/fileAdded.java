@@ -3,7 +3,7 @@ package com.company.prog.m2.fileAdded;
 import java.io.File;
 import java.util.Calendar;
 
-public class FileAdded {
+class FileAdded {
     public static void main(String[] args) {
         Calendar c = Calendar.getInstance();
         long l = c.getTimeInMillis();
