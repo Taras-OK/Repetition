@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 /**
  * Created by Palamarjuk on 04.05.2016.
  */
-public class MainTest {
+public class ReplaceTextFile {
 
     public static void main(String[] args) {
         try {

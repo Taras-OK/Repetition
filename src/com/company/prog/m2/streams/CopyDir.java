@@ -2,7 +2,7 @@ package com.company.prog.m2.streams;
 
 import java.io.File;
 
-import static com.company.prog.m2.streams.MainTest.copyFile;
+import static com.company.prog.m2.streams.ReplaceTextFile.copyFile;
 
 public class CopyDir {
 

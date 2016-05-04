@@ -14,14 +14,17 @@ public class ReadWriteFile {
 
         FileInputStream read = new FileInputStream(path);
         DataInputStream dis = new DataInputStream(read);
+        String s = "";
         try {
-            String s = dis.readUTF();
+            s = dis.readUTF();
             System.out.println(s);
         } catch (IOException e) {
 
         }finally {
             dis.close();
         }
+        System.out.println(s);
+        System.out.println(dis.readUTF());
 
         //System.out.println(s);
     }
