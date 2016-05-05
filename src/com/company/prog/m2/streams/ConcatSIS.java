@@ -26,11 +26,11 @@ public class ConcatSIS {
 
     }
 
-    public static void concatFiles(ArrayList fileList, String outFile) throws FileNotFoundException {
+    public static void concatFiles(ArrayList<String> fileList, String outFile) throws FileNotFoundException {
         Vector vector = new Vector(fileList.size());
         try{
             for (int i = 0; i < fileList.size(); i++) {
-                vector.addElement(new FileInputStream((String) fileList.get(i)));
+                vector.addElement(new FileInputStream(fileList.get(i)));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
