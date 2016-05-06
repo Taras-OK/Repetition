@@ -10,26 +10,26 @@ import java.util.Scanner;
 public class CurrentTime extends Thread {
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     Date dt = new Date();
-    private boolean status = false;
+    //private boolean status = false;
 
     @Override
     public void run() {
 
-        while (!status) {
+        while (!isInterrupted()) {
             dt.setTime(System.currentTimeMillis());
             System.out.print("\r" + sdf.format(dt));
 
             try {
                 Thread.sleep(10000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                return;
             }
         }
     }
 
-    public void finish() {
+   /* public void finish() {
         status = true;
-    }
+    }*/
 
     public static void main(String[] args) {
         CurrentTime ct = new CurrentTime();
@@ -43,8 +43,8 @@ public class CurrentTime extends Thread {
         String s = sc.nextLine();
 
         if (s != null) {
-            ct.finish();
-            System.out.println("Program will be closed in a few seconds");
+            ct.interrupt();
+            //System.out.println("Program will be closed in a few seconds");
         }
     }
 }
