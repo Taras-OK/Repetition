@@ -26,13 +26,18 @@ public class CopyDir {
 
 
     public static void main(String[] args) {
-        String pathSrc = "D:\\test1";
-        String pathDest = "D:\\test2";
+        String pathSrc = "D:\\Soft\\Install\\Adobe InDesign CC 2015";
+        String pathDest = "D:\\test";
+
+        long t1 = System.currentTimeMillis();
 
         try {
             listAll(pathSrc, pathDest);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        long t2 = System.currentTimeMillis() - t1;
+        System.out.println(t2 / 1000);
     }
 }
