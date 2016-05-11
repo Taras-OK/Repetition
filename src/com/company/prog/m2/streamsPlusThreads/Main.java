@@ -7,12 +7,11 @@ public class Main {
 
         ThreadsCopy tc = null;
         try {
-            tc = new ThreadsCopy("D:\\Soft\\Install\\Adobe InDesign CC 2015\\Adobe.exe",
-                    "D:\\Adobe.exe");
+            tc = new ThreadsCopy("D:\\Install\\ACad\\Autodesk_AutoCAD_Electrical_2012_EN-RU.isz",
+                    "D:\\Autodesk_AutoCAD_Electrical_2012_EN-RU.isz");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         tc.start();
-
     }
 }

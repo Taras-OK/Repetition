@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class ThreadsCopy extends Thread {
 
     public static CopyFileStreams cfs;
-    public static int bufSize;
+    public static long bufSize;
 
     public ThreadsCopy(String inPath, String outPath) throws FileNotFoundException {
         cfs = new CopyFileStreams(inPath, outPath);
@@ -33,12 +33,13 @@ public class ThreadsCopy extends Thread {
 
     private void createThreads() {
         long t1 = System.currentTimeMillis();
-        int available = cfs.getIsSize();
+        long available = cfs.getIsSize();
+        String s = "";
         bufSize = 1024 * 1024 * 50;
-        int threadsCount = available / bufSize + 1;
         ArrayList<ThreadsPartFile> list = new ArrayList<ThreadsPartFile>();
+        long c = 0;
 
-        for (int i = 0, c = 0; i < threadsCount; i++) {
+        for (int i = 0; c < cfs.getIsSize(); i++) {
             ThreadsPartFile pf = new ThreadsPartFile(c, bufSize);
             c += bufSize;
             pf.start();
@@ -47,9 +48,17 @@ public class ThreadsCopy extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            s += "*";
+            if (c <= available) {
+                System.out.print("\r" + "Progress: " + (c / (cfs.getIsSize() / 100)) + "%" + " [" + s + "]" + cfs.getIsSize());
+            } else {
+                System.out.print("\r" + "Progress: " + (100) + "%" + " [" + s + "]" + cfs.getIsSize());
+            }
             list.add(pf);
         }
+        System.out.println();
         System.out.println("All part of file is copied");
+        System.out.println(cfs.getIsSize());
 
         for (ThreadsPartFile f : list) {
             f.interrupt();

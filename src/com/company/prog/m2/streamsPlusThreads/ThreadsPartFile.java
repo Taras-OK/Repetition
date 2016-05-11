@@ -4,17 +4,17 @@ import java.io.IOException;
 
 public class ThreadsPartFile extends Thread {
 
-    int start;
-    int stop;
+    long start;
+    long stop;
 
-    public ThreadsPartFile(int start, int stop) {
+    public ThreadsPartFile(long start, long stop) {
         this.start = start;
         this.stop = stop;
     }
 
     @Override
     public void run() {
-        byte[] buf = new byte[ThreadsCopy.bufSize];
+        byte[] buf = new byte[(int)ThreadsCopy.bufSize];
         int counter = 0;
 
         try {

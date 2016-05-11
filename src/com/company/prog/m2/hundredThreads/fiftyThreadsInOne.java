@@ -2,7 +2,7 @@ package com.company.prog.m2.hundredThreads;
 
 import java.util.ArrayList;
 
-public class FiftyThreadsInOne extends Thread {
+class FiftyThreadsInOne extends Thread {
     int count;
     ArrayList<Thread> trList = new ArrayList<Thread>();
 

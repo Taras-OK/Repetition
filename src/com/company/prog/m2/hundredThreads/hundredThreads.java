@@ -2,7 +2,7 @@ package com.company.prog.m2.hundredThreads;
 
 import java.util.ArrayList;
 
-public class HundredThreads extends Thread {
+class HundredThreads extends Thread {
     @Override
     public void run() {
         System.out.println("My ID is: " + getId());
