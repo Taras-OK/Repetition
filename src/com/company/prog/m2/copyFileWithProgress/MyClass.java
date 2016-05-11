@@ -19,5 +19,12 @@ public class MyClass {
 	public static void main(String[] args) {
 		Copy c = new Copy("D:\\Install\\ACad\\Autodesk_AutoCAD_Electrical_2012_EN-RU.isz", "d:\\AutoCAD.isz", new Progress());
 		c.start();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		c.interrupt();
+
 	}
 }

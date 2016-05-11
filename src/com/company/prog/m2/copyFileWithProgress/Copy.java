@@ -47,7 +47,7 @@ public class Copy extends Thread {
                         if (progress != null)
                             progress.update(counter / onePersent);
                     }
-                } while (r > 0);
+                } while (r > 0 && !isInterrupted());
             } finally {
                 out.close();
             }
@@ -55,6 +55,7 @@ public class Copy extends Thread {
             in.close();
         }
         long t2 = System.currentTimeMillis() - t1;
+        System.out.println();
         System.out.println(t2 / 1000);
     }
 }
