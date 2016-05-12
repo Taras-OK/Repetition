@@ -1,5 +1,7 @@
 package com.company.prog.m2.accountThreadsConcurrent;
 
+import java.util.concurrent.Semaphore;
+
 class Account {
     private int money;
 
@@ -19,6 +21,7 @@ class Account {
 class Transaction extends Thread {
     private Account account;
     private int withdraw;
+    static Semaphore i = new Semaphore(1);
 
     public Transaction(Account account, int withdraw) {
         this.account = account;
@@ -29,11 +32,18 @@ class Transaction extends Thread {
         try { // спим для эмуляции реального многопоточного доступа к ресурсу
             Thread.sleep(System.currentTimeMillis() % 50);
         } catch (InterruptedException e) {}
+        //System.out.println("Start transaction");
 
-        synchronized (account) { // снимаем деньги со счета
+        try {
+            //System.out.println("Thread waiting for account");
+            i.acquire();
+            //System.out.println("Thread catch account");
             int total = account.get();
             if (total >= withdraw)
                 account.set(total - withdraw);
+            i.release();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
