@@ -7,15 +7,15 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 /**
- * Created by Palamarjuk
+ * Created by Palamarjuk 1
  */
-public class ClassWriter extends Thread {
+public class ClassWriterFile extends Thread {
 
-    ArrayList<ClassReader> threadsList;
+    ArrayList<ClassReaderFile> threadsList;
     String outFile;
     OutputStream os = null;
 
-    public ClassWriter(ArrayList<ClassReader> threadsList, String outFile) {
+    public ClassWriterFile(ArrayList<ClassReaderFile> threadsList, String outFile) {
         this.threadsList = threadsList;
         this.outFile = outFile;
     }
