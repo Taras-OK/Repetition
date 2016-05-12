@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 /**
- * Created by Palamarjuk.
+ * Created by Palamarjuk
  */
 public class ClassReaderFile extends Thread {
 
@@ -22,19 +22,8 @@ public class ClassReaderFile extends Thread {
             raf = new RandomAccessFile(path, "r");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } finally {
-            if (isInterrupted()) {
-                try {
-                    raf.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
-
-
     }
-
 
 
     public int read(byte[] b) throws IOException {

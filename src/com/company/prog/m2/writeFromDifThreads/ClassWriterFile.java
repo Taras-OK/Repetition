@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 /**
- * Created by Palamarjuk 1
+ * Created by Palamarjuk
  */
 public class ClassWriterFile extends Thread {
 
@@ -48,6 +48,11 @@ public class ClassWriterFile extends Thread {
                 }
                 r = 0;
                 threadsList.get(i).interrupt();
+                try {
+                    threadsList.get(i).raf.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
        // }
     }

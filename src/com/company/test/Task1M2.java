@@ -1,4 +1,4 @@
-package com.company.prog.m2;
+package com.company.test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
