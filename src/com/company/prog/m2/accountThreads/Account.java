@@ -1,4 +1,4 @@
-package com.company.prog.m2.fact;
+package com.company.prog.m2.accountThreads;
 
 class Account {
     private int money;

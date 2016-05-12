@@ -12,10 +12,10 @@ public class Main {
 
         for (int i = 0; i < pathList.length; i++) {
             threadsList.add(new ClassReaderFile(pathList[i]));
-            threadsList.get(i).run();
+            threadsList.get(i).start();
         }
 
         ClassWriterFile cw = new ClassWriterFile(threadsList, "D:\\4.txt");
-        cw.run();
+        cw.start();
     }
 }

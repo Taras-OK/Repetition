@@ -40,7 +40,7 @@ public class ClassWriterFile extends Thread {
                     }
                     if (r > 0) {
                         try {
-                            os.write(b);
+                            os.write(b, 0, r);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
