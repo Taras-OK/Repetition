@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 /**
- * Created by Palamarjuk on 11.05.2016.
+ * Created by Palamarjuk.
  */
-public class ClassReader extends Thread {
+public class ClassReade extends Thread {
 
     String path;
     RandomAccessFile raf = null;
 
-    public ClassReader(String path) {
+    public ClassReade(String path) {
         this.path = path;
     }
 
@@ -22,7 +22,7 @@ public class ClassReader extends Thread {
             raf = new RandomAccessFile(path, "r");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (isInterrupted()) {
                 try {
                     raf.close();
@@ -34,6 +34,8 @@ public class ClassReader extends Thread {
 
 
     }
+
+
 
     public int read(byte[] b) throws IOException {
         int count = 0;
