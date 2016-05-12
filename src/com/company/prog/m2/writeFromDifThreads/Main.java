@@ -8,14 +8,14 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         String[] pathList = new String[]{"D:\\1.txt", "D:\\2.txt", "D:\\3.txt"};
-        ArrayList<ClassReade> threadsList = new ArrayList<ClassReade>();
+        ArrayList<ClassReader> threadsList = new ArrayList<ClassReader>();
 
         for (int i = 0; i < pathList.length; i++) {
-            threadsList.add(new ClassReade(pathList[i]));
+            threadsList.add(new ClassReader(pathList[i]));
             threadsList.get(i).run();
         }
 
-        ClassWrite cw = new ClassWrite(threadsList, "D:\\4.txt");
+        ClassWriter cw = new ClassWriter(threadsList, "D:\\4.txt");
         cw.run();
     }
 }

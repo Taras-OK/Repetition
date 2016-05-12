@@ -7,12 +7,12 @@ import java.io.RandomAccessFile;
 /**
  * Created by Palamarjuk.
  */
-public class ClassReade extends Thread {
+public class ClassReader extends Thread {
 
     String path;
     RandomAccessFile raf = null;
 
-    public ClassReade(String path) {
+    public ClassReader(String path) {
         this.path = path;
     }
 

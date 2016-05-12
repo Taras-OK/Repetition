@@ -9,13 +9,13 @@ import java.util.ArrayList;
 /**
  * Created by Palamarjuk
  */
-public class ClassWrite extends Thread {
+public class ClassWriter extends Thread {
 
-    ArrayList<ClassReade> threadsList;
+    ArrayList<ClassReader> threadsList;
     String outFile;
     OutputStream os = null;
 
-    public ClassWrite(ArrayList<ClassReade> threadsList, String outFile) {
+    public ClassWriter(ArrayList<ClassReader> threadsList, String outFile) {
         this.threadsList = threadsList;
         this.outFile = outFile;
     }
