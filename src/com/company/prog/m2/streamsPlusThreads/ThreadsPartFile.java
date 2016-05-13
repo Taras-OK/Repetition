@@ -5,16 +5,16 @@ import java.io.IOException;
 public class ThreadsPartFile extends Thread {
 
     long start;
-    long stop;
+    int stop;
 
-    public ThreadsPartFile(long start, long stop) {
+    public ThreadsPartFile(long start, int stop) {
         this.start = start;
         this.stop = stop;
     }
 
     @Override
     public void run() {
-        byte[] buf = new byte[(int)ThreadsCopy.bufSize];
+        byte[] buf = new byte[ThreadsCopy.bufSize];
         int counter = 0;
 
         try {

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class ThreadsCopy extends Thread {
 
     public static CopyFileStreams cfs;
-    public static long bufSize;
+    public static int bufSize;
 
     public ThreadsCopy(String inPath, String outPath) throws FileNotFoundException {
         cfs = new CopyFileStreams(inPath, outPath);
