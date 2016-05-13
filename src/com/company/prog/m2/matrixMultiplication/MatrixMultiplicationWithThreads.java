@@ -1,0 +1,46 @@
+package com.company.prog.m2.matrixMultiplication;
+
+/**
+ * Created by Palamarjuk on 13.05.2016.
+ *
+ * Умножение матриц - одна из основных операций над матрицами. Принцип умножения матриц хорошо описан в Википедии
+ В двумерном массиве arr[m][n], по соглашению, первое значение - количество строк, второе - столбцов.
+
+ Применение умножения матриц можно найти, например,при программировании поведения объектов в трехмерном пространстве.
+ */
+public class MatrixMultiplicationWithThreads {
+    public static void main(String[] args) {
+        int[][] mA =
+                        {{33, 34, 12},
+                        {33, 19, 10},
+                        {12, 14, 17},
+                        {84, 24, 51},
+                        {43, 71, 21}};
+
+        int[][] mB =
+                        {{10, 11, 34, 55},
+                        {33, 45, 17, 81},
+                        {45, 63, 12, 16}};
+
+
+        int m = mA.length;
+        int n = mB[0].length;
+        int o = mB.length;
+        int[][] res = new int[m][n];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                for (int k = 0; k < o; k++) {
+                    res[i][j] += mA[i][k] * mB[k][j];
+                }
+            }
+        }
+
+        for (int i = 0; i < res.length; i++) {
+            for (int j = 0; j < res[0].length; j++) {
+                System.out.format("%6d ", res[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
