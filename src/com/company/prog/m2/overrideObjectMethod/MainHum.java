@@ -1,4 +1,4 @@
-package com.company.prog.m2.extendsObjectMethod;
+package com.company.prog.m2.overrideObjectMethod;
 
 import java.util.ArrayList;
 import java.util.Date;
